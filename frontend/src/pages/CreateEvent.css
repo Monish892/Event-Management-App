@@ -1,0 +1,256 @@
+/* CreateEvent Component Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables */
+:root {
+  --primary-color: #4f46e5;
+  --primary-light: #6366f1;
+  --primary-dark: #3730a3;
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --success: #10b981;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--gray-50);
+  color: var(--gray-700);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* CreateEvent Form Container */
+.create-event-form {
+  max-width: 600px;
+  margin: var(--spacing-2xl) auto;
+  background: var(--white);
+  padding: var(--spacing-2xl);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+}
+
+.create-event-form::before {
+  content: '🎪 Create New Event';
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--gray-100);
+}
+
+/* Form Input Styles */
+.create-event-input {
+  width: 100%;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--border-radius-md);
+  background: var(--white);
+  color: var(--gray-700);
+  transition: all var(--transition-fast);
+  min-height: 52px;
+}
+
+.create-event-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  background: var(--white);
+  transform: translateY(-1px);
+}
+
+.create-event-input::placeholder {
+  color: var(--gray-400);
+  font-weight: 400;
+}
+
+.create-event-input:hover {
+  border-color: var(--gray-300);
+}
+
+/* Special styling for different input types */
+.create-event-input[type="date"] {
+  color: var(--gray-600);
+}
+
+.create-event-input[type="date"]::-webkit-calendar-picker-indicator {
+  color: var(--primary-color);
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(31%) sepia(85%) saturate(2211%) hue-rotate(231deg) brightness(102%) contrast(102%);
+}
+
+.create-event-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.create-event-input[type="number"]::-webkit-outer-spin-button,
+.create-event-input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Price Input Special Styling */
+.create-event-input[placeholder="Price"] {
+  position: relative;
+}
+
+.create-event-input[placeholder="Price"]::before {
+  content: '₹';
+  position: absolute;
+  left: var(--spacing-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-500);
+  font-weight: 500;
+  pointer-events: none;
+}
+
+/* Submit Button Styles */
+.create-event-submit {
+  width: 100%;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+  min-height: 56px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+}
+
+.create-event-submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.create-event-submit:hover {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.create-event-submit:hover::before {
+  left: 100%;
+}
+
+.create-event-submit:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+.create-event-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  background: var(--gray-400);
+}
+
+/* Success Animation */
+@keyframes successPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.create-event-form.success {
+  animation: successPulse 0.6s ease-in-out;
+  border-color: var(--success);
+}
+
+/* Form Validation States */
+.create-event-input:invalid {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.create-event-input:valid {
+  border-color: var(--success);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .create-event-form {
+    margin: var(--spacing-lg);
+    padding: var(--spacing-lg);
+  }
+  
+  .create-event-form::before {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .create-event-input {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    min-height: 48px;
+  }
+  
+  .create-event-submit {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+    min-height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .create-event-form {
+    margin: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+  }
+  
+  .create-event-input {
+    font-size: 0.9rem;
+  }
+  
+  .create-event-submit {
+    font-size: 0.95rem;
+  }
+}
